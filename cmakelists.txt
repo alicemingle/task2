@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.1)
+
+project(Hash)
+
+include_directories(${PROJECT_SOURCE_DIR})
+
+set (HASH_SRC  mainhash.cpp hash.cpp)
+set (HASH_HDR  hash.h)
+
+add_executable (${PROJECT_NAME} ${HASH_SRC} ${HASH_HDR})
