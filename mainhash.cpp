@@ -1,5 +1,5 @@
 #include "hash.h"
-#include "autotest2.h"
+#include "Autotest2.h"
 
 int main(void) {
     Autotest();
