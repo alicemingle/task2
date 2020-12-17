@@ -4,7 +4,7 @@ project(Hash)
 
 include_directories(${PROJECT_SOURCE_DIR})
 
-set (HASH_SRC  mainhash.cpp hash.cpp)
-set (HASH_HDR  hash.h)
+set (HASH_SRC  mainhash.cpp hash.cpp autotest2.cpp)
+set (HASH_HDR  hash.h Autotest2.h)
 
 add_executable (${PROJECT_NAME} ${HASH_SRC} ${HASH_HDR})
