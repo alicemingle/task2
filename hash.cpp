@@ -15,14 +15,14 @@ template <typename T> Hash<T>::Hash(int m) {
     vect.resize(m);
 }
 
-template <typename T> bool Hash<T>::Find(const T &x) { // Говорит, нашелся ли такой элемент в нашем контейнере
+template <typename T> bool Hash<T>::Find(const T &x) { // ГѓГ®ГўГ®Г°ГЁГІ, Г­Г ГёГҐГ«Г±Гї Г«ГЁ ГІГ ГЄГ®Г© ГЅГ«ГҐГ¬ГҐГ­ГІ Гў Г­Г ГёГҐГ¬ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°ГҐ
     size_t i = h(x);
     for (typename list<T>::iterator it = vect[i].begin(); it != vect[i].end(); ++it) {
         if (*it == x) {
-            return true; // Нашли
+            return true; // ГЌГ ГёГ«ГЁ
         }
     }
-    return false; // Не нашли
+    return false; // ГЌГҐ Г­Г ГёГ«ГЁ
 }
 
 template<typename T> bool Hash<T>::Insert(const T &x) {
@@ -31,7 +31,7 @@ template<typename T> bool Hash<T>::Insert(const T &x) {
     }
     vect[h(x)].push_back(x);
     N++;
-    if (N > vect.size()*4) { // Разрешаем в среднем 4 элемента в списке
+    if (N > vect.size()*4) { // ГђГ Г§Г°ГҐГёГ ГҐГ¬ Гў Г±Г°ГҐГ¤Г­ГҐГ¬ 4 ГЅГ«ГҐГ¬ГҐГ­ГІГ  Гў Г±ГЇГЁГ±ГЄГҐ
         size_t m = vect.size();
         Hash<T> s_(2*m);
         for (size_t i = 0; i < m; ++i) {
@@ -45,7 +45,7 @@ template<typename T> bool Hash<T>::Insert(const T &x) {
     return true;
 }
 template <typename T> size_t Hash<T>::h(const T& x) {
-    return x % vect.size(); // должен быть определен оператор %
+    return x % vect.size(); // Г¤Г®Г«Г¦ГҐГ­ ГЎГ»ГІГј Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ Г®ГЇГҐГ°Г ГІГ®Г° %
 }
 template <typename T> bool Hash<T>::Delete(const T& x) {
     size_t i = h(x);
@@ -53,13 +53,12 @@ template <typename T> bool Hash<T>::Delete(const T& x) {
         if (*it == x) {
             vect[i].erase(it);
             N--;
-            return true; // Нашли
+            return true; // ГЌГ ГёГ«ГЁ
         }
     }
-    return false; // Не нашли
+    return false; // ГЌГҐ Г­Г ГёГ«ГЁ
 }
 
-template Hash<int>::Hash(int m = 3);
 template bool Hash<int>::Insert(const int& x);
 template ostream& operator<<(ostream& cout, Hash<int> &s);
 template bool Hash<int>::Find(const int& x);
