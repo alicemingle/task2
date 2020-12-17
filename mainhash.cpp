@@ -1,6 +1,8 @@
 #include "hash.h"
+#include "autotest2.h"
 
 int main(void) {
+    Autotest();
     Hash<int> s;
     for (int i = 0; i < 30; ++i) {
         s.Insert(i);
@@ -10,3 +12,4 @@ int main(void) {
     cout << s << endl;
     return 0;
 }
+
